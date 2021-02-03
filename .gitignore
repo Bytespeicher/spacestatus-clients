@@ -1,3 +1,6 @@
+# Sensors Temperature
+sensors_temperature/config.sh
+
 # Status OpenWRT
 status_openwrt/config.sh
 status_openwrt/config/devices_exclude.txt
