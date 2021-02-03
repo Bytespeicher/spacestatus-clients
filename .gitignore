@@ -1,0 +1,5 @@
+# Status OpenWRT
+status_openwrt/config.sh
+status_openwrt/config/devices_exclude.txt
+status_openwrt/config/devices.lastchange
+status_openwrt/config/users.txt
