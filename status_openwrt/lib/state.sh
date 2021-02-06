@@ -37,8 +37,7 @@ open_state_devices() {
 # Get open state by mqtt sensor
 open_state_mqtt() {
 
-  #MQTT_ANSWER=$(mosquitto_sub -h $MQTT_HOST -C 1 -u $MQTT_USER -P $MQTT_PASSWORD -t $MQTT_SENSOR 2>/dev/null)
-  MQTT_ANSWER="12"
+  MQTT_ANSWER=$(mosquitto_sub -h $MQTT_HOST -C 1 -u $MQTT_USER -P $MQTT_PASSWORD -t "$MQTT_TOPIC" 2>/dev/null)
 
   if echo $MQTT_ANSWER | grep --quiet -E "$MQTT_STATE_OPEN"; then
     # Open state
