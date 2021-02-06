@@ -3,22 +3,10 @@
 # Include configuration and lib
 . $(dirname $(readlink -f $0))/config/config.sh || exit 1
 . $(dirname $(readlink -f $0))/lib/devices.sh || exit 1
+. $(dirname $(readlink -f $0))/lib/state.sh || exit 1
 . $(dirname $(readlink -f $0))/lib/users.sh || exit 1
 
 generate_json_output_api() {
-
-  DEVICES=$(devices_count)
-  case $DEVICES in
-    "0") OPEN="false"
-       CONNECTED="No devices connected"
-       ;;
-    "1") OPEN="true"
-       CONNECTED="1 device connected"
-       ;;
-    *) OPEN="true"
-       CONNECTED="$DEVICES devices connected"
-       ;;
-  esac
 
   # JSON Output
   echo "{"
@@ -29,9 +17,9 @@ generate_json_output_api() {
   echo "    }]"
   echo "  },"
   echo "  \"state\": {"
-  echo "    \"open\": $OPEN,"
+  echo "    \"open\": $(open_state),"
   echo "    \"lastchange\": $(devices_get_last_change)",
-  echo "    \"message\": \"$CONNECTED\""
+  echo "    \"message\": \"$(connected_devices_message)\""
   echo "  }"
   echo "}"
 }
