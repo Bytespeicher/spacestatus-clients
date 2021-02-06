@@ -1,7 +1,7 @@
 #!/usr/bin/env ash
 
 # Include configuration and lib
-. $(dirname $(readlink -f $0))/config.sh || exit 1
+. $(dirname $(readlink -f $0))/config/config.sh || exit 1
 . $(dirname $(readlink -f $0))/lib/devices.sh || exit 1
 . $(dirname $(readlink -f $0))/lib/users.sh || exit 1
 
