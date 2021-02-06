@@ -39,10 +39,10 @@ open_state_mqtt() {
 
   MQTT_ANSWER=$(mosquitto_sub -h $MQTT_HOST -C 1 -u $MQTT_USER -P $MQTT_PASSWORD -t "$MQTT_TOPIC" 2>/dev/null)
 
-  if echo $MQTT_ANSWER | grep --quiet -E "$MQTT_STATE_OPEN"; then
+  if echo $MQTT_ANSWER | grep -q -E "$MQTT_STATE_OPEN"; then
     # Open state
     OPEN="true"
-  elif echo $MQTT_ANSWER | grep --quiet -E "$MQTT_STATE_CLOSED"; then
+  elif echo $MQTT_ANSWER | grep -q -E "$MQTT_STATE_CLOSED"; then
     # Closed state
     OPEN="false"
   else
@@ -67,4 +67,4 @@ connected_devices_message() {
   esac
 
   echo $CONNECTED
-}
+
