@@ -34,6 +34,7 @@ generate_json_output_api() {
 check_configuration
 generate_json_output_api |\
   curl \
+    $CURL_EXTRA_OPTIONS \
     --silent \
     --connect-timeout 5 \
     --max-time 10 \

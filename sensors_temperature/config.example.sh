@@ -12,3 +12,4 @@ DEVICES=(
 
 API_URL="https://status.bytespeicher.org/api/v1/sensors/temperature"
 API_KEY="THIS_IS_THE_API_KEY"
+# CURL_EXTRA_OPTIONS="--insecure"
