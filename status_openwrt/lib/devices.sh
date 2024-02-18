@@ -16,7 +16,7 @@ devices_count_all() {
 devices_count() {
   # Grep all active leases by host names from regex (-E) that do not (-v) match with case ignored (-i)
   # Count found host names (-c) with grep directly
-  echo $(cat $DNSMASQ_LEASEFILE | grep -c -v -i -E "$(__get_devices_exclude_filter)")
+  echo $(cat $DNSMASQ_LEASEFILE | sed 's/*/unknow /g'| grep -c -v -i -E "$(__get_devices_exclude_filter)")
 }
 
 # Get timestamp of longest valid dhcp lease
