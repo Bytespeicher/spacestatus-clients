@@ -67,4 +67,4 @@ connected_devices_message() {
   esac
 
   echo $CONNECTED
-
+}
