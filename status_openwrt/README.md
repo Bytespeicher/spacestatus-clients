@@ -66,15 +66,22 @@ Scripts to update space status by dnsmasq leases on an OpenWRT based router usin
     ```
 
 8. Adjust hostnames to ignore in lease file in config/devices_exclude.txt
+   
+   *Please note: Every line is evaluated as a regular expression and control characters (e.g. \*) must be escaped with backslash.*
+   ```
+   fileserver
+   switch[12]
+   \*
+   ```
 
-9. Adjust mac to username bindings in config/users.txt to show attendant user on spacestatus-server page
+10. Adjust mac to username bindings in config/users.txt to show attendant user on spacestatus-server page
 
-10. Create cronjob entry in /etc/crontabs/root
+11. Create cronjob entry in /etc/crontabs/root
     ```
     * * * * *     /usr/share/spacestatus/update_status_api.sh
     ```
 
-11. Restart cron daemon
+12. Restart cron daemon
     ```shell
     /etc/init.d/cron restart
     ```
